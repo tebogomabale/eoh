@@ -22,7 +22,7 @@ import za.co.digitalplatoo.invoiceservice.invoice.entity.Invoice;
  * @author tmabale
  */
 @RestController
-@RequestMapping("/eoh")
+@RequestMapping("/")
 public class InvoiceRestController {
     
     public static final org.slf4j.Logger logger = LoggerFactory.getLogger(InvoiceRestController.class);
