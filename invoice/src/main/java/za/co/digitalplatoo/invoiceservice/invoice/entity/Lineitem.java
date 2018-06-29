@@ -7,6 +7,7 @@ package za.co.digitalplatoo.invoiceservice.invoice.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,23 +26,25 @@ public class Lineitem implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private Long quantity;
+    private Integer id;
+    private Integer quantity;
     private String description;
+    @Column(name = "UNIT_PRICE")
     private BigDecimal unitPrice;
     
     @ManyToOne
     @JoinColumn(name="invoiceId")
     private Invoice invoice;
+    @Column(name = "LINE_ITEM_TOTAL")
     private BigDecimal lineItemTotal;
     
     
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -56,11 +59,11 @@ public class Lineitem implements Serializable {
     
     
 
-    public Long getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Long quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 

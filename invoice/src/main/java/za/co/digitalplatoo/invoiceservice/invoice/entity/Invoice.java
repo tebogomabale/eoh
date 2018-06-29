@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,12 +29,14 @@ public class Invoice implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
+    private Integer id;
     private String client;
+    @Column(name = "VAT_RATE")
     private Long vatRate;
     @Temporal(javax.persistence.TemporalType.DATE)
+    @Column(name = "INVOICE_DATE")
     private Date invoiceDate;
+    @Column(name = "SUB_TOTAL")
     private BigDecimal subTotal;
     private BigDecimal vat;
     private BigDecimal total;
@@ -41,11 +44,11 @@ public class Invoice implements Serializable {
     @OneToMany(targetEntity=Lineitem.class, mappedBy="id", fetch=FetchType.EAGER)
     private List<Lineitem> lineitems;
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     public String getClient() {

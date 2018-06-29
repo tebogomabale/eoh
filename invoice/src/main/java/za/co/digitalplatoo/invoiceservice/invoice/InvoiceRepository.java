@@ -13,6 +13,6 @@ import za.co.digitalplatoo.invoiceservice.invoice.entity.Invoice;
  *
  * @author tmabale
  */
-public interface InvoiceRepository extends JpaRepository<Invoice, Long> {
+public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
     
 }

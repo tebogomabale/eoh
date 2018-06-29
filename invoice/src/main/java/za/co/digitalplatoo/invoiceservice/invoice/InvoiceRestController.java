@@ -56,7 +56,7 @@ public class InvoiceRestController {
     }
     
     @RequestMapping(value = "/invoices/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> viewInvoice(@PathVariable("id")Long id)
+    public ResponseEntity<?> viewInvoice(@PathVariable("id")Integer id)
     {
         Invoice invoice = invoiceRepository.getOne(id);
         if (invoice == null) {
